@@ -17,7 +17,9 @@ let curTetromino = [[1,0], [0,1], [1,1], [2,1]];
 // 3. Will hold all the Tetrominos
 let tetrominos = [];
 // 3. The tetromino array with the colors matched to the tetrominos array
-let tetrominoColors = ['purple','cyan','blue','yellow','orange','green','red'];
+//let tetrominoColors = ['#90F1EF','#FFD6E0','#FFEF9F','#C1FBA4','#7BF1A8','#FFE066','#FFE066'];
+let tetrominoColors = ['#FF7878','#D2D0BA','#B6BE9C','#56876D','#D2AB99','#FFA399','#D88373'];
+
 // 3. Holds current Tetromino color
 let curTetrominoColor;
 
@@ -75,11 +77,11 @@ function SetupCanvas(){
     ctx.scale(2, 2);
 
     // Draw Canvas background
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = '#394F49';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw gameboard rectangle
-    ctx.strokeStyle = 'black';
+    ctx.strokeStyle = '#FF7878';
     ctx.strokeRect(8, 8, 280, 462);
 
     tetrisLogo = new Image(161, 54);
@@ -87,8 +89,8 @@ function SetupCanvas(){
     tetrisLogo.src = "tetrislogo.png";
 
     // Set font for score label text and draw
-    ctx.fillStyle = 'black';
-    ctx.font = '21px Arial';
+    ctx.fillStyle = '#FF7878';
+    ctx.font = '21px HELVETICA';
     ctx.fillText("SCORE", 300, 98);
 
     // Draw score rectangle
@@ -122,7 +124,7 @@ function SetupCanvas(){
     ctx.strokeRect(300, 366, 161, 104);
 
     // Draw controls text
-    ctx.font = '19px Arial';
+    ctx.font = '19px Helvetica';
     ctx.fillText("A : Move Left", 310, 388);
     ctx.fillText("D : Move Right", 310, 413);
     ctx.fillText("S : Move Down", 310, 438);
@@ -246,7 +248,7 @@ function DeleteTetromino(){
         // Draw white where colored squares used to be
         let coorX = coordinateArray[x][y].x;
         let coorY = coordinateArray[x][y].y;
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = '#394F49';
         ctx.fillRect(coorX, coorY, 21, 21);
     }
 }
@@ -341,9 +343,9 @@ function CheckForVerticalCollison(){
         // Check for game over and if so set game over text
         if(startY <= 2){
             winOrLose = "Game Over";
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = '#394F49';
             ctx.fillRect(310, 242, 140, 30);
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = '#FF7878';
             ctx.fillText(winOrLose, 310, 261);
         } else {
 
