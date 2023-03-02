@@ -82,6 +82,40 @@ function SetupCanvas(){
   tetrisLogo.onLoad = DrawTetrisLogo;
   tetrisLogo.src = 'tetrislogo.png';
 
+  // Set font for score label text and draw
+  ctx.fillStyle = 'black';
+  ctx.font = '21px Arial';
+  ctx.fillText('SCORE', 300, 98);
+
+  // Draw score rectangle
+  ctx.strokeRect(300, 107, 161, 24);
+
+  // Draw score
+  ctx.fillText(score.toString(), 310, 127);
+
+  // Draw level label text
+  ctx.fillText("LEVEL", 300, 157);
+
+  // Draw level rectangle
+  ctx. strokeRect(300, 171, 161, 24);
+
+  // Draw level
+  ctx.fillText(level.toString(), 310, 190);
+
+  // Draw next label text
+  ctx.fillText("WiN / LOSE", 300, 221);
+
+  // Draw playing condition
+  ctx.fillText(winOrLose, 310, 261);
+  ctx.strokeRect(300, 232, 161, 95);
+  ctx.fillText('CONTROLS', 300, 354);
+  ctx.strokeRect(300, 366, 161, 104);
+  ctx.font = '19px Arial'
+  ctx.fillText("A : Move left", 310, 388);
+  ctx.fillText("D : Move right", 310, 413);
+  ctx.fillText("S : Move down", 310, 438);
+  ctx.fillText("E : Rotate right", 310, 463);
+
   // 2. Handle keyboard presses
   document.addEventListener('keydown', HandleKeyPress);
 
@@ -92,6 +126,10 @@ function SetupCanvas(){
   // Create the rectangle lookup table
   CreateCoordinateArray();
   DrawTetromino();
+}
+
+function DrawTetrisLogo(){
+  ctx.drawImage(tetrisLogo, 300, 8, 161, 54);
 }
 
 function DrawTetromino(){
